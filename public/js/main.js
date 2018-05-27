@@ -60,14 +60,12 @@ function getOtherPc(pc) {
 }
 
 function gotStream(stream) {
-  alert('Received local stream');
   trace('Received local stream');
   localVideo.srcObject = stream;
   localStream = stream;
   callButton.disabled = false;
   localStream.oninactive = function() {
     console.log('Stream inactive');
-    alert('Local stream inactive');
   };
 }
 
@@ -100,11 +98,13 @@ function call() {
   var servers = null;
   pc1 = new RTCPeerConnection(servers);
   trace('Created local peer connection object pc1');
+  alert('Created local peer connection object pc1');
   pc1.onicecandidate = function(e) {
     onIceCandidate(pc1, e);
   };
   pc2 = new RTCPeerConnection(servers);
   trace('Created remote peer connection object pc2');
+  alert('Created remote peer connection object pc2');
   pc2.onicecandidate = function(e) {
     onIceCandidate(pc2, e);
   };
