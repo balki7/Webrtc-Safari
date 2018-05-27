@@ -60,10 +60,15 @@ function getOtherPc(pc) {
 }
 
 function gotStream(stream) {
+  alert('Received local stream');
   trace('Received local stream');
   localVideo.srcObject = stream;
   localStream = stream;
   callButton.disabled = false;
+  localStream.oninactive = function() {
+    console.log('Stream inactive');
+    alert('Local stream inactive');
+  };
 }
 
 function start() {
