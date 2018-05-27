@@ -293,7 +293,7 @@ console.warn = function() {
     return _consoleWarn.apply(console, arguments);
 };
 
-var _consoleInfo = console.info;
+/*var _consoleInfo = console.info;
 console.info = function() {
     var text = '';
 
@@ -318,9 +318,9 @@ console.info = function() {
     }
 
     return _consoleInfo.apply(console, arguments);
-};
+};*/
 
-var _consoleLog = console.log;
+/*var _consoleLog = console.log;
 console.log = function() {
     var text = '';
 
@@ -345,4 +345,4 @@ console.log = function() {
     }
 
     return _consoleLog.apply(console, arguments);
-};
+};*/
