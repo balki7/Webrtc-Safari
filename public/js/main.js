@@ -292,3 +292,57 @@ console.warn = function() {
 
     return _consoleWarn.apply(console, arguments);
 };
+
+var _consoleInfo = console.info;
+console.info = function() {
+    var text = '';
+
+    for (var argKey in arguments) {
+        var arg = arguments[argKey];
+
+        var subText = '';
+        if (typeof arg === 'object') {
+            Object.keys(arg).forEach(function(key) {
+                subText += key + ':' + arg[key] + ',';
+            });
+        } else if (typeof arg == 'string') {
+            subText += arg;
+        }
+        text += " " + subText.trim(',');
+    }
+
+    if (text) {
+        try {
+            alert("Info : " + text);
+        } catch (e) {}
+    }
+
+    return _consoleInfo.apply(console, arguments);
+};
+
+var _consoleLog = console.log;
+console.log = function() {
+    var text = '';
+
+    for (var argKey in arguments) {
+        var arg = arguments[argKey];
+
+        var subText = '';
+        if (typeof arg === 'object') {
+            Object.keys(arg).forEach(function(key) {
+                subText += key + ':' + arg[key] + ',';
+            });
+        } else if (typeof arg == 'string') {
+            subText += arg;
+        }
+        text += " " + subText.trim(',');
+    }
+
+    if (text) {
+        try {
+            alert("Log : " + text);
+        } catch (e) {}
+    }
+
+    return _consoleLog.apply(console, arguments);
+};
