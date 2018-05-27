@@ -98,13 +98,11 @@ function call() {
   var servers = null;
   pc1 = new RTCPeerConnection(servers);
   trace('Created local peer connection object pc1');
-  alert('Created local peer connection object pc1');
   pc1.onicecandidate = function(e) {
     onIceCandidate(pc1, e);
   };
   pc2 = new RTCPeerConnection(servers);
   trace('Created remote peer connection object pc2');
-  alert('Created remote peer connection object pc2');
   pc2.onicecandidate = function(e) {
     onIceCandidate(pc2, e);
   };
@@ -240,3 +238,30 @@ function hangup() {
   hangupButton.disabled = true;
   callButton.disabled = false;
 }
+
+var _consoleError = console.error;
+console.error = function() {
+    var text = '';
+
+    for (var argKey in arguments) {
+        var arg = arguments[argKey];
+
+        var subText = '';
+        if (typeof arg === 'object') {
+            Object.keys(arg).forEach(function(key) {
+                subText += key + ':' + arg[key] + ',';
+            });
+        } else if (typeof arg == 'string') {
+            subText += arg;
+        }
+        text += " " + subText.trim(',');
+    }
+
+    if (text) {
+        try {
+            alert(text);
+        } catch (e) {}
+    }
+
+    return _consoleError.apply(console, arguments);
+};
