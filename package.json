@@ -1,0 +1,22 @@
+{
+  "name": "my-webrtc-app",
+  "version": "1.0.0",
+  "description": "www.balkigemirter.com",
+  "private": true,
+  "scripts":
+  {
+    "start": "node app.js"
+  },
+  "author": "Balkı Gemirter",
+  "dependencies":
+  {
+    "body-parser": "1.15.2",
+    "express": "^4.14.0",
+    "fs": "0.0.1-security",
+    "ws": "^1.1.1"
+  },
+  "engines":
+  {
+    "node": ">=0.12.7"
+  }
+}
